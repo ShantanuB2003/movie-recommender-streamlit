@@ -44,7 +44,7 @@ import streamlit as st
 
 # Load pickles
 movies = pickle.load(open('movies.pkl', 'rb'))   # MUST be DataFrame
-similarity = pickle.load(open('similarity.lz4', 'rb'))
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 def recommend(movie_name):
     index = movies[movies['title'] == movie_name].index[0]
@@ -85,3 +85,4 @@ if st.button("Recommend"):
     else:
 
         st.warning("No recommendations found.")
+
