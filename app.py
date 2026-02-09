@@ -72,7 +72,7 @@ st.title("🎬 Movie Recommender System")
 
 selected_movie = st.selectbox(
     "Select a movie",
-    data['title'].values
+    movies['title'].values
 )
 
 if st.button("Recommend"):
@@ -85,6 +85,7 @@ if st.button("Recommend"):
     else:
 
         st.warning("No recommendations found.")
+
 
 
 
