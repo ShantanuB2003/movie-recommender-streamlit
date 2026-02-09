@@ -43,11 +43,11 @@ import pickle
 import streamlit as st
 
 # Load pickles
-movies = pickle.load(open('movies.pkl', 'rb'))   # MUST be DataFrame
+movies = pickle.load(open('data.pkl', 'rb'))   # MUST be DataFrame
 similarity = pickle.load(open('compressed_similarity.pkl', 'rb'))
 
 def recommend(movie_name):
-    index = movies[movies['title'] == movie_name].index[0]
+    index = data[data['title'] == movie_name].index[0]
 
     distances = sorted(
         list(enumerate(similarity[index])),
@@ -85,5 +85,6 @@ if st.button("Recommend"):
     else:
 
         st.warning("No recommendations found.")
+
 
 
