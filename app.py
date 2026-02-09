@@ -50,7 +50,7 @@ def recommend(movie_name):
     index = data[data['title'] == movie_name].index[0]
 
     distances = sorted(
-        list(enumerate(similarity[index])),
+        list(enumerate(compressed_similarity[index])),
         reverse=True,
         key=lambda x: x[1]
     )
@@ -64,7 +64,7 @@ def recommend(movie_name):
         
 
 
-        recommended_movies.append(movies.iloc[i[0]]['title'])
+        recommended_movies.append(data.iloc[i[0]]['title'])
 
     return recommended_movies
 
@@ -72,7 +72,7 @@ st.title("🎬 Movie Recommender System")
 
 selected_movie = st.selectbox(
     "Select a movie",
-    movies['title'].values
+    data['title'].values
 )
 
 if st.button("Recommend"):
@@ -85,6 +85,7 @@ if st.button("Recommend"):
     else:
 
         st.warning("No recommendations found.")
+
 
 
 
